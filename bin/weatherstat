@@ -1,5 +1,22 @@
 #!/usr/bin/env python3
 
+"""
+
+weatherstat
+
+A simple python tool that leverages OpenWeatherMap's API to generate weather stats.
+usage: weatherstat [-h] [-z ZIP] [-c CITY] [-id ID] [-lat LAT] [-lon LON]
+
+optional arguments:
+      -h, --help            show this help message and exit
+      -z ZIP, --zip ZIP     zipcode
+      -c CITY, --city CITY  city
+      -id ID, --id ID       city id
+      -lat LAT              latitude
+      -lon LON              longitutde
+
+"""
+
 import argparse
 import json
 import os
