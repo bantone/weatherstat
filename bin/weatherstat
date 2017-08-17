@@ -26,9 +26,7 @@ import requests
 parser = argparse.ArgumentParser()
 
 # --data argument to decide if you want to call current weather
-# data or 5 day weather forecast
-
-# parser.add_argument("-data",         help="current weather or 5 day")
+#   or 5 day / 3 hour weather forecast
 
 # Arguments for zipcope, city, city ID
 parser.add_argument("-z", "--zip",   help="zipcode")
