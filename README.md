@@ -19,6 +19,7 @@ optional arguments:
   -id ID, --id ID       city id
   -lat LAT              latitude
   -lon LON              longitutde
+  --data DATA           current weather data / 5 day / 3 hour forecast
 ```
 
-Any suggestions appreciated! :) I am attempting to add more functionality to it outside of simply generating the current weather.
+Any suggestions appreciated! :) I am attempting to add more functionality to it outside of simply generating the current weather, pulling historical data, and making JSON pretty.
