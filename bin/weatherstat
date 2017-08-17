@@ -24,35 +24,45 @@ import requests
 
 parser = argparse.ArgumentParser()
 
+# --data argument to decide if you want to call current weather
+# data or 5 day weather forecast
+
+# parser.add_argument("-data",         help="current weather or 5 day")
+
 # Arguments for zipcope, city, city ID
 parser.add_argument("-z", "--zip",   help="zipcode")
 parser.add_argument("-c", "--city",  help="city")
 parser.add_argument("-id", "--id",   help="city id")
-parser.add_argument("-lat",          help="latitude")
-parser.add_argument("-lon",          help="longitutde")
+parser.add_argument("--lat",          help="latitude")
+parser.add_argument("--lon",          help="longitutde")
+parser.add_argument("--data", default="weather", 
+        help="current weather data or 5 day / 3 hour forecast")
 
 APIKEY = os.environ.get('APPID')
+URL= "http://api.openweathermap.org/data/2.5/"
 
 args = parser.parse_args()
 
 def main():
     if args.zip:
-        response = requests.get('http://api.openweathermap.org/data/2.5/weather',
-                                params = { 'zip': args.zip + ',us', 
+        response = requests.get(URL + args.data,
+                                params = { 
+                                           'zip': args.zip + ',us', 
                                            'APPID': APIKEY 
                                             } )
+
     elif args.city:
-        response = requests.get('http://api.openweathermap.org/data/2.5/weather',
+        response = requests.get(URL + args.data,
                                 params = { 'q': args.city, 
                                            'APPID': APIKEY 
                                             } )
     elif args.id:
-        response = requests.get('http://api.openweathermap.org/data/2.5/weather',
+        response = requests.get(URL + args.data,
                                 params = { 'id': args.id, 
                                            'APPID': APIKEY 
                                             } )
     elif args.lat and args.lon:
-        response = requests.get('http://api.openweathermap.org/data/2.5/weather',
+        response = requests.get(URL + args.data,
                                 params = { 'lat': args.lat, 
                                            'lon': args.lon, 
                                            'APPID': APIKEY 
